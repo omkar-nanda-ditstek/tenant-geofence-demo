@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgis/postgis:15-3.4
+    container_name: tenant-geofence-demo-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
